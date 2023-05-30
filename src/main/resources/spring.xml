@@ -4,5 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="doctor" class="gmbh.conteco.SpringSchulungDB30052023.hospital.Doctor">
         <constructor-arg name="qualification" value="Marc"/>
+        <constructor-arg name="nurse" ref="nurse"/>
     </bean>
+    <bean id="nurse" class="gmbh.conteco.SpringSchulungDB30052023.hospital.Nurse"/>
 </beans>
