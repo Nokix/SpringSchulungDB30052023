@@ -4,8 +4,17 @@ public class Doctor {
     String qualification;
     Nurse nurse;
 
-    public Doctor(String qualification, Nurse nurse) {
+//    public Doctor(String qualification, Nurse nurse) {
+//        this.qualification = qualification;
+//        this.nurse = nurse;
+//    }
+
+
+    public void setQualification(String qualification) {
         this.qualification = qualification;
+    }
+
+    public void setNurse(Nurse nurse) {
         this.nurse = nurse;
     }
 
