@@ -7,10 +7,6 @@ public class Doctor {
         this.qualification = qualification;
     }
 
-    //    public Doctor() {
-//        this.qualification = "Dr.";
-//    }
-
     public String assist() {
         return this.qualification + " is helping.";
     }
