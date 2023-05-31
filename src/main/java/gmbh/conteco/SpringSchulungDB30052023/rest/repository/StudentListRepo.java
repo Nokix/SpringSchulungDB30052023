@@ -10,7 +10,17 @@ import java.util.List;
 public class StudentListRepo {
     List<Student> database = new ArrayList<>();
 
+    public StudentListRepo() {
+        database.add(new Student(100L, "Hristana"));
+        database.add(new Student(101L, "Jens"));
+    }
+
     public List<Student> findAll() {
         return database;
+    }
+
+    public Student save(Student student) {
+        database.add(student);
+        return student;
     }
 }
