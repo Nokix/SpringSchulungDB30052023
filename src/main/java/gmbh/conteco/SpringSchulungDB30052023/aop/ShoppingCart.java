@@ -1,10 +1,12 @@
 package gmbh.conteco.SpringSchulungDB30052023.aop;
 
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 
 @Component
+@Getter
 public class ShoppingCart {
     private HashMap<Item, Long> cart = new HashMap<>();
 
