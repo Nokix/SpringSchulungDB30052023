@@ -31,4 +31,8 @@ public class StudentService {
                 .map(studentListRepo::save)
                 .toList();
     }
+
+    public Student saveStudent(Student student) {
+        return studentListRepo.save(student);
+    }
 }

@@ -30,4 +30,9 @@ public class StudentController {
     ) {
         return studentService.createStudents(amount);
     }
+
+    @PostMapping("/students/new")
+    public Student saveStudent(@RequestBody Student student) {
+        return studentService.saveStudent(student);
+    }
 }
