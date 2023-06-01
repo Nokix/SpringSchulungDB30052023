@@ -40,8 +40,8 @@ class StudentControllerTest {
                 .content(objectMapper.writeValueAsString(student));
 
         mockMvc.perform(postRequest)
-                .andExpect(status().isCreated());
-                //.andExpect(jsonPath("$.id").value(1))
-                //.andExpect(jsonPath("$.name").value("Michael"));
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.id").value(student.getId()))
+                .andExpect(jsonPath("$.name").value(student.getName()));
     }
 }

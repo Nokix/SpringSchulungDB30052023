@@ -5,6 +5,7 @@ import lombok.*;
 
 @AllArgsConstructor
 @Getter
+@EqualsAndHashCode
 public class Student {
     Long id;
 
