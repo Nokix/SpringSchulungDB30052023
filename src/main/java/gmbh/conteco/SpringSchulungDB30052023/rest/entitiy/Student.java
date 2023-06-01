@@ -19,7 +19,20 @@ public class Student {
     @NotBlank(message = "Name should not be blank.")
     String name;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    Book book;
+
     public Student(String name) {
+        this.name = name;
+    }
+
+    public Student(String name, Book book) {
+        this.name = name;
+        this.book = book;
+    }
+
+    public Student(long id, String name) {
+        this.id = id;
         this.name = name;
     }
 }
