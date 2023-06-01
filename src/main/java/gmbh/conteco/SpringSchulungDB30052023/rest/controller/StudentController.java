@@ -22,6 +22,16 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
+    @GetMapping("/students/{part}")
+    public List<Student> getStudentsWithNamePart(@PathVariable String part) {
+        return studentService.getStudentWithNamePart(part);
+    }
+
+    @GetMapping("/students/names/{part}")
+    public List<String> getStudentNamesWithNamePart(@PathVariable String part) {
+        return studentService.getStudentNamesWithNamePart(part);
+    }
+
     @PostMapping("/students/new/{name}")
     @ResponseStatus(HttpStatus.CREATED)
     public Student saveStudent(@PathVariable String name){

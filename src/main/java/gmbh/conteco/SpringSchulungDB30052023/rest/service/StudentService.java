@@ -36,4 +36,12 @@ public class StudentService {
     public Student saveStudent(Student student) {
         return studentRepo.save(student);
     }
+
+    public List<Student> getStudentWithNamePart(String part) {
+        return studentRepo.findByNameContains(part);
+    }
+
+    public List<String> getStudentNamesWithNamePart(String part) {
+        return studentRepo.findNamesByNameContains(part);
+    }
 }
