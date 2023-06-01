@@ -3,6 +3,7 @@ package gmbh.conteco.SpringSchulungDB30052023.rest.service;
 import com.github.javafaker.Faker;
 import gmbh.conteco.SpringSchulungDB30052023.rest.entitiy.Student;
 import gmbh.conteco.SpringSchulungDB30052023.rest.repository.StudentListRepo;
+import gmbh.conteco.SpringSchulungDB30052023.rest.repository.StudentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,27 +13,27 @@ import java.util.stream.Stream;
 @Service
 @AllArgsConstructor
 public class StudentService {
-    StudentListRepo studentListRepo;
+    StudentRepository studentRepo;
     // Wie komme ich an eine Faker instanz ran? (Spring)
     Faker faker;
 
     public List<Student> getAllStudents() {
-        return studentListRepo.findAll();
+        return studentRepo.findAll();
     }
 
     public Student saveStudent(String name) {
-        return studentListRepo.save(new Student(name));
+        return studentRepo.save(new Student(name));
     }
 
     public List<Student> createStudents(int amount) {
         return Stream.generate(faker.name()::firstName)
                 .limit(amount)
                 .map(Student::new)
-                .map(studentListRepo::save)
+                .map(studentRepo::save)
                 .toList();
     }
 
     public Student saveStudent(Student student) {
-        return studentListRepo.save(student);
+        return studentRepo.save(student);
     }
 }
