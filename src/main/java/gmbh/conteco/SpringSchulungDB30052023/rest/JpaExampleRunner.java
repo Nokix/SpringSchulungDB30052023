@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 @Component
 public class JpaExampleRunner implements CommandLineRunner {
     @Autowired
@@ -17,13 +21,17 @@ public class JpaExampleRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Book book0 = new Book("Analysis 1");
-        Book book1 = new Book("Analysis 2");
+        Student student0 = new Student("Carlos");
+        Student student1 = new Student("Mathias");
 
-        Student student0 = new Student("Carlos", book0);
-        Student student1 = new Student("Mathias", book1);
+        Book book0 = new Book("Analysis 1", student0);
+        Book book1 = new Book("Analysis 2", student0);
+        Book book2 = new Book("Analysis 3", student1);
 
-        studentRepository.save(student0);
-        studentRepository.save(student1);
+        bookRepository.saveAll(List.of(book0, book1, book2));
+//        studentRepository.save(student0);
+//        studentRepository.save(student1);
+
+        Optional<Student> student = studentRepository.findById(1L);
     }
 }

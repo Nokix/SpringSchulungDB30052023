@@ -15,4 +15,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Query("select s from Student s where s.name like concat(?1, '%') and s.id < ?2")
     Optional<Student> findByNameStartsWithAndIdLessThan(String name, Long id);
+
+
 }
